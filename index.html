@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Me perdoa?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6e6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #cc0000;
+      font-size: 2.5em;
+    }
+
+    .botoes {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 8px;
+      transition: 0.3s ease;
+    }
+
+    #sim {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #nao {
+      background-color: #f44336;
+      color: white;
+      position: absolute;
+    }
+
+    #mensagem {
+      display: none;
+      font-size: 3em;
+      color: #cc0000;
+    }
+  </style>
+</head>
+<body>
+  <div id="conteudo">
+    <h1>Me perdoa?</h1>
+    <div class="botoes">
+      <button id="sim">Sim</button>
+      <button id="nao">Não</button>
+    </div>
+  </div>
+
+  <div id="mensagem">Eu te amo ❤️</div>
+
+  <script>
+    const btnNao = document.getElementById("nao");
+    const btnSim = document.getElementById("sim");
+    const conteudo = document.getElementById("conteudo");
+    const mensagem = document.getElementById("mensagem");
+
+    btnNao.addEventListener("mouseover", () => {
+      const largura = window.innerWidth - btnNao.offsetWidth;
+      const altura = window.innerHeight - btnNao.offsetHeight;
+
+      const x = Math.random() * largura;
+      const y = Math.random() * altura;
+
+      btnNao.style.left = `${x}px`;
+      btnNao.style.top = `${y}px`;
+    });
+
+    btnSim.addEventListener("click", () => {
+      conteudo.style.display = "none";
+      mensagem.style.display = "block";
+    });
+  </script>
+</body>
+</html>
